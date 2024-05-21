@@ -1,0 +1,13 @@
+Options -Indexes
+RewriteEngine On
+
+RewriteRule ^user-sponsorship/([^/]+) /hidden/user-ad.php?type=$1 [L]
+RewriteRule ^v1/users/([^/]+)/friends$ /v1/hidden/friends.php?id=$1 [L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php [L]
+
+ErrorDocument 404 /404.php
+
+ErrorDocument 403 /403.php
